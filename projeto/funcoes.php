@@ -29,7 +29,7 @@ function salvarDificuldade($id,$descricao,$peso,$cor){
 	if ((is_null($id)) || ($id == ''))
 		$sql = "insert into dificuldade (descricao,peso,cor) values ('$descricao','$peso','$cor')";
 	else
-		$sql = "update dificuldade set descricao ='$descricao',peso ='cor' where id = '$id'";
+		$sql = "update dificuldade set descricao ='$descricao',peso ='$peso',cor ='$cor' where id = '$id'";
 	if (mysql_query($sql))
 
 		$result = true;
@@ -168,6 +168,9 @@ if (isset($_REQUEST["event"])){
 			break;
 		case 'salvarAvaliacao':
 			$code = (salvarAvaliacao($_REQUEST["id"],$_REQUEST["avaliacao"],$_REQUEST["questao"],$_REQUEST["equipe"])) ? "202" : "404";
+			break;
+		case 'salvarDificuldade':
+			$code = (salvarDificuldade($_REQUEST["id"],$_REQUEST["descricao"],$_REQUEST["peso"],$_REQUEST["cor"])) ? "202" : "404";
 			break;
 		default:
 			break;
