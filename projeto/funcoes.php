@@ -171,6 +171,9 @@ if (isset($_REQUEST["event"])){
 		case 'excluirMembro':
 			$code = (excluirMembro($_REQUEST["id"])) ? "202" : "404";
 			break;
+		case 'excluirDificuldade':
+			$code = (excluirDificuldade($_REQUEST["id"])) ? "202" : "404";
+			break;
 		case 'salvarEquipe':
 			$code = (salvarEquipe($_REQUEST["id"],$_REQUEST["nome"],$_REQUEST["tecnico"])) ? "202" : "404";
 			break;
