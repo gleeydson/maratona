@@ -4,7 +4,7 @@ ini_set("display_errors","off");
 function conectar(){
 	$host = "localhost";
 	$user = "root";
-	$password = "linux";
+	$password = "";
 	$database = "maratona";
 
 	$conexao = mysql_connect($host,$user,$password);
@@ -163,32 +163,7 @@ function getAcertos($equipe){
 	return $lista;
 }
 
-if (isset($_REQUEST["event"])){
-	switch ($_REQUEST["event"]) {
-		case 'excluirEquipe':
-			$code = (excluirEquipe($_REQUEST["id"])) ? "202" : "404";
-			break;
-		case 'excluirMembro':
-			$code = (excluirMembro($_REQUEST["id"])) ? "202" : "404";
-			break;
-		case 'excluirDificuldade':
-			$code = (excluirDificuldade($_REQUEST["id"])) ? "202" : "404";
-			break;
-		case 'salvarEquipe':
-			$code = (salvarEquipe($_REQUEST["id"],$_REQUEST["nome"],$_REQUEST["tecnico"])) ? "202" : "404";
-			break;
-		case 'salvarMembro':
-			$code = (salvarMembro($_REQUEST["id"],$_REQUEST["nome"],$_REQUEST["equipe"])) ? "202" : "404";
-			break;
-		case 'salvarAvaliacao':
-			$code = (salvarAvaliacao($_REQUEST["id"],$_REQUEST["avaliacao"],$_REQUEST["questao"],$_REQUEST["equipe"])) ? "202" : "404";
-			break;
-		case 'salvarDificuldade':
-			$code = (salvarDificuldade($_REQUEST["id"],$_REQUEST["descricao"],$_REQUEST["peso"],$_REQUEST["cor"])) ? "202" : "404";
-			break;
-		default:
-			break;
-	}
+
 
 	header("Location: " . $_REQUEST["view"] . "-" .$code);
 
