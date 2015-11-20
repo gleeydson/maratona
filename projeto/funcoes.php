@@ -117,6 +117,17 @@ function excluirMembro($id){
 	return $result;
 }
 
+function excluir($conteudo,$id){
+	$conexao = conectar();
+	$sql = "delete from $conteudo where id = '$id'";
+	if (mysql_query($sql))
+		$result = true;
+	else
+		$result = false;
+	desconectar($conexao);
+	return $result;
+}
+
 function listar($relacao){
 	$conexao = conectar();
 	$sql = "select * from {$relacao}";
