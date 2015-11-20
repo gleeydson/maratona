@@ -4,7 +4,7 @@ ini_set("display_errors","off");
 function conectar(){
 	$host = "localhost";
 	$user = "root";
-	$password = "";
+	$password = "mysql";
 	$database = "maratona";
 
 	$conexao = mysql_connect($host,$user,$password);
