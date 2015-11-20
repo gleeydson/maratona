@@ -1,6 +1,6 @@
 <?php
-ini_set("display_errors","off");
-//error_reporting(E_ALL & ~E_NOTICE);
+ini_set("display_errors","on");
+/*error_reporting(E_ALL & ~E_NOTICE);*/
 header('charset = utf-8'); 
 session_name("loginUserMege");
 session_start();

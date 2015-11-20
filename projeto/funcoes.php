@@ -24,6 +24,20 @@ function desconectar($con){
 	mysql_close($con);
 }
 
+function salvarDificuldade($id,$descricao,$peso,$cor){
+	$conexao = conectar();
+	if ((is_null($id)) || ($id == ''))
+		$sql = "insert into dificuldade (descricao,peso,cor) values ('$descricao','$peso','$cor')";
+	else
+		$sql = "update dificuldade set descricao ='$descricao',peso ='cor' where id = '$id'";
+	if (mysql_query($sql))
+
+		$result = true;
+	else
+		$result = false;
+	desconectar($conexao);
+	return $result;
+}
 
 function salvarEquipe($id,$nome,$tecnico){
 	$conexao = conectar();
@@ -69,6 +83,17 @@ function salvarAvaliacao($id,$avaliacao,$questao,$equipe){
 	return $result;
 }
 
+function excluirDificuldade($id){
+	$conexao = conectar();
+	$sql = "delete from dificuldade where id = '$id'";
+	if (mysql_query($sql))
+
+		$result = true;
+	else
+		$result = false;
+	desconectar($conexao);
+	return $result;
+}
 function excluirEquipe($id){
 	$conexao = conectar();
 	$sql = "delete from equipe where id = '$id'";
