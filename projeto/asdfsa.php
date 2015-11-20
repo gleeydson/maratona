@@ -11,3 +11,8 @@ if(salvarDificuldade('','desc','10','greeen')){
     echo "erro na insersao";
 
 
+
+
+
+
+
