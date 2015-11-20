@@ -1,10 +1,13 @@
 <?php
 
 require "funcoes.php";
-/*salvarDificuldade('','desc','10','roooosa');
-salvarDificuldade('','desc','10','roooosa');
-salvarDificuldade('','desc','10','roooosa');
-salvarDificuldade('','desc','10','roooosa');
-salvarDificuldade('','desc','10','roooosa');*/
 
-excluirDificuldade('21');
+/*excluirDificuldade('34');*/
+
+
+if(salvarDificuldade('','desc','10','greeen')){
+    echo "inserido com sucessso";
+}else
+    echo "erro na insersao";
+
+
