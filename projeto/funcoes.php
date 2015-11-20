@@ -4,7 +4,7 @@ ini_set("display_errors","off");
 function conectar(){
 	$host = "localhost";
 	$user = "root";
-	$password = "";
+	$password = "linux";
 	$database = "maratona";
 
 	$conexao = mysql_connect($host,$user,$password);
@@ -170,6 +170,9 @@ if (isset($_REQUEST["event"])){
 			break;
 		case 'excluirMembro':
 			$code = (excluirMembro($_REQUEST["id"])) ? "202" : "404";
+			break;
+		case 'excluirDificuldade':
+			$code = (excluirDificuldade($_REQUEST["id"])) ? "202" : "404";
 			break;
 		case 'salvarEquipe':
 			$code = (salvarEquipe($_REQUEST["id"],$_REQUEST["nome"],$_REQUEST["tecnico"])) ? "202" : "404";

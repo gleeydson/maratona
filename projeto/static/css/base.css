@@ -29,6 +29,7 @@ table.acompanhamento{
 }
 
 .baloes{
+	text-indent: -999px;
 	border-radius: 50%;
 	position:relative;
 	font-size: 0.8rem;

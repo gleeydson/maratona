@@ -18,7 +18,11 @@
                     </div>
                     <div class="form-group">
                         <label for="cor">Cor</label>
-                        <input type="text" class="form-control" id="cor" name="cor">
+                        <select name="cor" id="cor" class="form-control">
+                            <option value="green">verde</option>
+                            <option value="yellow">amarelo</option>
+                            <option value="red">vermelho</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -61,6 +65,13 @@
             <?php
             $dificuldades = listar("dificuldade");
             foreach ($dificuldades as $dificuldade):
+                if($dificuldade->cor == 'green'){
+                    $soverte = 'green';
+                }elseif($dificuldade->cor == 'yellow'){
+                    $soverte = 'yellow';
+                }else{
+                    $soverte = 'red';
+                }
                 ?>
                 <tr>
                     <th class="identificador" scope="row">
@@ -75,9 +86,9 @@
                         <?=$dificuldade->peso?>
                         <input type="hidden" class="peso" value="<?=$dificuldade->peso?>">
                     </td>
-                    <td>
+                    <td class="baloes <?=$soverte?>">
                         <?=$dificuldade->cor?>
-                        <input type="hidden" class="peso" value="<?=$dificuldade->cor?>">
+                        <input type="hidden" class="cor" value="<?=$dificuldade->cor?>">
                     </td>
                     <td class="action">
                         <a href="#" onclick="editar(this)" data-toggle="modal" data-target="#modal-cadastro">
@@ -96,6 +107,8 @@
         </table>
     </div>
 </div>
+
+
 <script>
 
     var editar = function(obj){
